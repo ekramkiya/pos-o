@@ -4,7 +4,9 @@
 @section('content-header', 'Product List')
 @section('content-actions')
 @if(auth()->user()->role->hasPermission('product create'))
+<a href="{{route('products.import')}}" class="btn btn-success">Import Product</a>
 <a href="{{route('products.create')}}" class="btn btn-primary">Create Product</a>
+
 @endif
 @endsection
 @section('css')

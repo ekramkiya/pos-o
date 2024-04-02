@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ProductBuyController;
+use App\Models\Product;
 
 Route::get('/', function () {
     return redirect('/admin');
@@ -28,6 +29,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/settings', [SettingController::class, 'store'])->name('settings.store')->middleware('permission:setting update');
     Route::resource('products', ProductController::class)->middleware('permission:product view');
     Route::get('products/{product}/print', [ProductController::class,'print'])->name('products.print');
+    Route::get('import',[ProductController::class,'importProduct'])->name('products.import');
+    Route::post('upload',[ProductController::class,'uploadProduct'])->name('products.upload');
+
     Route::get('/shortage',[ProductController::class,'shortage'])->name('product.shortage');
     Route::resource('customers', CustomerController::class)->middleware('permission:customer view');
     Route::get('employe', [UserController::class, 'index'])->name('employe.index')->middleware('permission:employe view ');

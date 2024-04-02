@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Http\Resources\ProductResource;
+use App\Imports\ProductsImport;
 use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Dompdf\Dompdf;
+use Maatwebsite\Excel\Facades\Excel;
 use Milon\Barcode\DNS1D;
+
+
 
 
 class ProductController extends Controller
@@ -61,18 +65,18 @@ class ProductController extends Controller
     public function store(ProductStoreRequest $request)
     {
         $image_path = '';
-    
+
         if ($request->hasFile('image')) {
             $image_path = $request->file('image')->store('products', 'public');
         }
-    
+
         $number = mt_rand(10000, 99999);
-    
-        if($this->productCodeExist($number)) {
+
+        if ($this->productCodeExist($number)) {
             $number = mt_rand(10000, 99999);
         }
-      
-       
+
+
         $product = Product::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -82,18 +86,18 @@ class ProductController extends Controller
             'quantity' => $request->quantity,
             'status' => $request->status
         ]);
-    
+
         if (!$product) {
             return redirect()->back()->with('error', 'Sorry, there was a problem while creating the product.');
         }
-        
-    
+
+
         return redirect()->route('products.index')->with('success', 'Success, your product has been created.');
     }
-    
+
     public function productCodeExist($number)
     {
-        return Product::wherebarcode( $number)->exists();
+        return Product::wherebarcode($number)->exists();
     }
 
     /**
@@ -183,5 +187,17 @@ class ProductController extends Controller
     public function print(Product $product)
     {
         return view('products.barcodeprint', compact('product'));
+    }
+
+    public function importProduct()
+    {
+        return view('products.import');
+    }
+
+    public function uploadProduct(ProductStoreRequest $request)
+    {
+
+        Excel::import(new ProductsImport, $request->file);
+        return redirect()->route('products.index')->with('success', 'Success, your product have been imported.');
     }
 }
