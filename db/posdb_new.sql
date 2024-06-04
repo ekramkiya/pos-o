@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2024 at 07:44 PM
+-- Generation Time: Apr 17, 2024 at 12:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -378,18 +378,10 @@ INSERT INTO `roles_permission` (`id`, `role_id`, `permission_id`, `created_at`, 
 (53, 2, 29, NULL, NULL),
 (54, 3, 1, NULL, NULL),
 (55, 3, 2, NULL, NULL),
-(56, 3, 3, NULL, NULL),
-(57, 3, 4, NULL, NULL),
 (58, 3, 6, NULL, NULL),
 (59, 3, 7, NULL, NULL),
 (60, 3, 9, NULL, NULL),
-(61, 3, 10, NULL, NULL),
-(62, 3, 11, NULL, NULL),
 (63, 3, 17, NULL, NULL),
-(64, 3, 23, NULL, NULL),
-(65, 3, 24, NULL, NULL),
-(66, 3, 25, NULL, NULL),
-(67, 3, 26, NULL, NULL),
 (70, 1, 32, NULL, NULL),
 (71, 1, 33, NULL, NULL),
 (72, 1, 34, NULL, NULL),
@@ -443,7 +435,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `user_role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$MCMcmLmkdsVxfWMPBDutPuEjcShhYHZnzV5ygwn6We7EamKtypPEK', '1', NULL, '2024-03-24 11:16:46', '2024-03-24 11:16:46');
+(1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$MCMcmLmkdsVxfWMPBDutPuEjcShhYHZnzV5ygwn6We7EamKtypPEK', '1', NULL, '2024-03-24 11:16:46', '2024-03-24 11:16:46'),
+(4, 'ali', 'ahmadi', 'ali@gmail.com', NULL, '$2y$10$FG17xcRXGW0dyQRaf8QMqeoEjHR8aSh/jk2katpIyfahz6Wg0VcV6', '3', NULL, '2024-04-17 05:41:33', '2024-04-17 05:41:33'),
+(5, 'kiya', 'kiya', 'kiya@gmail.com', NULL, '$2y$10$08Ec4CbsFBnEbBk1oq04kOvYhLbJQaC7h0s7UjtB.Gor4mtpsT30S', '2', NULL, '2024-04-17 05:43:32', '2024-04-17 05:43:32');
 
 -- --------------------------------------------------------
 
@@ -668,7 +662,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

@@ -69,7 +69,6 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $image_path = $request->file('image')->store('products', 'public');
         }
-
         $number = mt_rand(10000, 99999);
 
         if ($this->productCodeExist($number)) {

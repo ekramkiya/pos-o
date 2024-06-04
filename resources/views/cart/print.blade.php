@@ -77,7 +77,7 @@
                 <div class="modal-body">
                     <div class="ticket text-center">
                         <img src="{{asset('images/logo.png')}}" alt="Logo">
-                        <h4 class="centered"> Smart Pos
+                        <h4 class="centered">ASA SYSTEM
                             <br>
                         </h4>
                         <p class="centered"> Sales RECEIPT

@@ -4,7 +4,7 @@
 @section('content-header', 'Product List')
 @section('content-actions')
 @if(auth()->user()->role->hasPermission('product create'))
-<a href="{{route('products.import')}}" class="btn btn-success">Import Product</a>
+{{-- <a href="{{route('products.import')}}" class="btn btn-success">Import Product</a> --}}
 <a href="{{route('products.create')}}" class="btn btn-primary">Create Product</a>
 
 @endif
@@ -35,7 +35,11 @@
                 <tr>
                     <td>{{$product->id}}</td>
                     <td>{{$product->name}}</td>
-                    <td><img class="product-img" src="{{ Storage::url($product->image) }}" alt=""></td>
+                    {{-- {{ Storage::url(`/storage/$product->image`) }} --}}
+
+                    <td><img class="product-img" src="{{ asset('storage/' . $product->image) }}" alt="Product Image"></td>
+       
+
                     <td>{!! DNS1D::getBarcodeHTML("$product->barcode",'PHARMA') !!}
                     P - {{$product->barcode}}
                     </td>

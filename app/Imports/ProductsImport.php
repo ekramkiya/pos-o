@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\Product;
+use App\Models\Products;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class ProductsImport implements ToModel
@@ -14,15 +14,8 @@ class ProductsImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Product([
-            "name"  => $row['name'],
-            "description"  => $row['description'],
-            "image"  => $row['image'],
-            "barcode"  => $row['barcode'],
-            "price"  => $row['price'],
-            "quantity"  => $row['quantity'],
-            "status" => 1,
-            
+        return new Products([
+            //
         ]);
     }
 }
