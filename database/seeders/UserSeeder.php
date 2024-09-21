@@ -23,5 +23,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('kabul123'),
             'user_role' => '1'
         ]);
+
+       
     }
 }

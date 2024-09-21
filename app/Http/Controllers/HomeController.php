@@ -21,10 +21,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -78,7 +78,7 @@ class HomeController extends Controller
             'expenses_count' => $expenses_count,
             'expenses_daily' => $expenses_daily,
             'purchase_sum' => $purchase_sum,
-        'total_shortage_quantity' => $total_shortage_quantity,
+            'total_shortage_quantity' => $total_shortage_quantity,
             
 
             

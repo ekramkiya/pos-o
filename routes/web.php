@@ -24,13 +24,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('permission:home view');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index')->middleware('permission:setting view');
     Route::post('/settings', [SettingController::class, 'store'])->name('settings.store')->middleware('permission:setting update');
     Route::resource('products', ProductController::class)->middleware('permission:product view');
     Route::get('products/{product}/print', [ProductController::class,'print'])->name('products.print');
-    Route::get('import',[ProductController::class,'importProduct'])->name('products.import');
-    Route::post('upload',[ProductController::class,'uploadProduct'])->name('products.upload');
+
 
     Route::get('/shortage',[ProductController::class,'shortage'])->name('product.shortage');
     Route::resource('customers', CustomerController::class)->middleware('permission:customer view');

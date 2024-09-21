@@ -36,8 +36,9 @@
                     <td>{{$product->id}}</td>
                     <td>{{$product->name}}</td>
                     {{-- {{ Storage::url(`/storage/$product->image`) }} --}}
-
-                    <td><img class="product-img" src="{{ asset('storage/' . $product->image) }}" alt="Product Image"></td>
+{{-- 
+                    <td><img class="product-img" src="{{ asset('storage/' . $product->image) }}" alt="Product Image"></td> --}}
+                    <td><img class="product-img" src="storage/app/public/products/2fOi4yh0DWnj6XJaSgY0YvCKqpJIBwovOm6vKwoo.png" alt="Product Image"></td>
        
 
                     <td>{!! DNS1D::getBarcodeHTML("$product->barcode",'PHARMA') !!}

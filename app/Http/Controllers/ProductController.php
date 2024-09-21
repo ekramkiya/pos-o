@@ -69,6 +69,7 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $image_path = $request->file('image')->store('products', 'public');
         }
+    
         $number = mt_rand(10000, 99999);
 
         if ($this->productCodeExist($number)) {
@@ -85,7 +86,7 @@ class ProductController extends Controller
             'quantity' => $request->quantity,
             'status' => $request->status
         ]);
-
+     
         if (!$product) {
             return redirect()->back()->with('error', 'Sorry, there was a problem while creating the product.');
         }
