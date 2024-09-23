@@ -31,6 +31,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('products/{product}/print', [ProductController::class,'print'])->name('products.print');
 
 
+    
+
     Route::get('/shortage',[ProductController::class,'shortage'])->name('product.shortage');
     Route::resource('customers', CustomerController::class)->middleware('permission:customer view');
     Route::get('employe', [UserController::class, 'index'])->name('employe.index')->middleware('permission:employe view ');
